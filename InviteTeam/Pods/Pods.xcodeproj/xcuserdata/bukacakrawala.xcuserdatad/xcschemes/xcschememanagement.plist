@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>JTAppleCalendar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-InviteTeam.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-InviteTeamTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-InviteTeamUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>37AB6535137F34EB8EEBC6BD1CF37C68</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8AEF685D0F5E33D7756B078806753C6B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9B22756F1BC69AB282A6C7FFC7EB05C3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DA17E434B481DAE3EB25F4548E5FD850</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
