@@ -10,6 +10,8 @@
 		166A9BE735C65DFE920EEFEA /* Pods_InviteTeam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 685D5341482CC24D77F0D306 /* Pods_InviteTeam.framework */; };
 		703A3546E0CF5CF7864605C4 /* Pods_InviteTeamTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F61F31719F3C46537824BF0A /* Pods_InviteTeamTests.framework */; };
 		BC3D037EB5669993F0B8279F /* Pods_InviteTeamUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63E2C757190100AE0EF2EFAA /* Pods_InviteTeamUITests.framework */; };
+		C61A9EA91E5BE1E900448137 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C61A9EA81E5BE1E900448137 /* CellView.xib */; };
+		C61A9EAB1E5BF5F300448137 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61A9EAA1E5BF5F300448137 /* CellView.swift */; };
 		C6E423EF1E5BDC5D00707F53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E423EE1E5BDC5D00707F53 /* AppDelegate.swift */; };
 		C6E423F11E5BDC5D00707F53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E423F01E5BDC5D00707F53 /* ViewController.swift */; };
 		C6E423F41E5BDC5D00707F53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E423F21E5BDC5D00707F53 /* Main.storyboard */; };
@@ -43,6 +45,8 @@
 		685D5341482CC24D77F0D306 /* Pods_InviteTeam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InviteTeam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CFB1AA9B0A90194DE8364F0 /* Pods-InviteTeamTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InviteTeamTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InviteTeamTests/Pods-InviteTeamTests.release.xcconfig"; sourceTree = "<group>"; };
 		C1B25594AA27151C9D7375C2 /* Pods-InviteTeamUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InviteTeamUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InviteTeamUITests/Pods-InviteTeamUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C61A9EA81E5BE1E900448137 /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellView.xib; sourceTree = "<group>"; };
+		C61A9EAA1E5BF5F300448137 /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		C6E423EB1E5BDC5D00707F53 /* InviteTeam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InviteTeam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E423EE1E5BDC5D00707F53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6E423F01E5BDC5D00707F53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				C6E423F51E5BDC5D00707F53 /* Assets.xcassets */,
 				C6E423F71E5BDC5D00707F53 /* LaunchScreen.storyboard */,
 				C6E423FA1E5BDC5D00707F53 /* Info.plist */,
+				C61A9EA81E5BE1E900448137 /* CellView.xib */,
+				C61A9EAA1E5BF5F300448137 /* CellView.swift */,
 			);
 			path = InviteTeam;
 			sourceTree = "<group>";
@@ -284,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C61A9EA91E5BE1E900448137 /* CellView.xib in Resources */,
 				C6E423F91E5BDC5D00707F53 /* LaunchScreen.storyboard in Resources */,
 				C6E423F61E5BDC5D00707F53 /* Assets.xcassets in Resources */,
 				C6E423F41E5BDC5D00707F53 /* Main.storyboard in Resources */,
@@ -451,6 +458,7 @@
 			files = (
 				C6E423F11E5BDC5D00707F53 /* ViewController.swift in Sources */,
 				C6E423EF1E5BDC5D00707F53 /* AppDelegate.swift in Sources */,
+				C61A9EAB1E5BF5F300448137 /* CellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,6 +713,7 @@
 				C6E424151E5BDC5D00707F53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C6E424161E5BDC5D00707F53 /* Build configuration list for PBXNativeTarget "InviteTeamTests" */ = {
 			isa = XCConfigurationList;
@@ -713,6 +722,7 @@
 				C6E424181E5BDC5D00707F53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C6E424191E5BDC5D00707F53 /* Build configuration list for PBXNativeTarget "InviteTeamUITests" */ = {
 			isa = XCConfigurationList;
@@ -721,6 +731,7 @@
 				C6E4241B1E5BDC5D00707F53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
