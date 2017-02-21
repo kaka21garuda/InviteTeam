@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="200" height="180"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateTextGoesHere" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1Y-18-xlN">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateTextGoesHere" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1Y-18-xlN">
                     <rect key="frame" x="28" y="75" width="145" height="31"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="31" id="C71-EA-IQa"/>
@@ -26,7 +26,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.22745098039215686" green="0.15686274509803921" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="A1Y-18-xlN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="AeE-t6-moN"/>
                 <constraint firstItem="A1Y-18-xlN" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ZfN-Fx-bkc"/>

@@ -21,6 +21,8 @@ class ViewController: UIViewController {
         calendarView.delegate = self
         calendarView.registerCellViewXib(file: "CellView")
         
+        calendarView.cellInset = CGPoint(x: 0, y: 0)
+        
     }
 
 }
@@ -61,13 +63,24 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         
         //setup text color
         if cellState.dateBelongsTo == .thisMonth {
-            myCustoCell.dayLabel.textColor = UIColor.black
+            myCustoCell.dayLabel.textColor = UIColor(colorWithHexValue: 0xECEAED)
         } else {
-            myCustoCell.dayLabel.textColor = UIColor.gray
+            myCustoCell.dayLabel.textColor = UIColor(colorWithHexValue: 0x574865)
         }
         
     }
     
+}
+
+extension UIColor {
+    convenience init(colorWithHexValue value: Int, alpha:CGFloat = 1.0){
+        self.init(
+            red: CGFloat((value & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((value & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(value & 0x0000FF) / 255.0,
+            alpha: alpha
+        )
+    }
 }
 
 
