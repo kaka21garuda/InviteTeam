@@ -14,6 +14,7 @@
 		C61A9EAB1E5BF5F300448137 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61A9EAA1E5BF5F300448137 /* CellView.swift */; };
 		C65B17C71E5E0FBC00F2326B /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65B17C61E5E0FBC00F2326B /* CreateEventViewController.swift */; };
 		C65B17C91E5E2F9700F2326B /* AgendaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65B17C81E5E2F9700F2326B /* AgendaTableViewController.swift */; };
+		C65B17CB1E5E3E7F00F2326B /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65B17CA1E5E3E7F00F2326B /* CustomTableViewCell.swift */; };
 		C6E423EF1E5BDC5D00707F53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E423EE1E5BDC5D00707F53 /* AppDelegate.swift */; };
 		C6E423F11E5BDC5D00707F53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E423F01E5BDC5D00707F53 /* ViewController.swift */; };
 		C6E423F41E5BDC5D00707F53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E423F21E5BDC5D00707F53 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		C61A9EAA1E5BF5F300448137 /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		C65B17C61E5E0FBC00F2326B /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		C65B17C81E5E2F9700F2326B /* AgendaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaTableViewController.swift; sourceTree = "<group>"; };
+		C65B17CA1E5E3E7F00F2326B /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		C6E423EB1E5BDC5D00707F53 /* InviteTeam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InviteTeam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E423EE1E5BDC5D00707F53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6E423F01E5BDC5D00707F53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				C6E423EE1E5BDC5D00707F53 /* AppDelegate.swift */,
 				C6E423F01E5BDC5D00707F53 /* ViewController.swift */,
 				C6E423F21E5BDC5D00707F53 /* Main.storyboard */,
+				C65B17CA1E5E3E7F00F2326B /* CustomTableViewCell.swift */,
 				C6E423F51E5BDC5D00707F53 /* Assets.xcassets */,
 				C6E423F71E5BDC5D00707F53 /* LaunchScreen.storyboard */,
 				C6E423FA1E5BDC5D00707F53 /* Info.plist */,
@@ -462,6 +465,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C65B17CB1E5E3E7F00F2326B /* CustomTableViewCell.swift in Sources */,
 				C65B17C91E5E2F9700F2326B /* AgendaTableViewController.swift in Sources */,
 				C6E423F11E5BDC5D00707F53 /* ViewController.swift in Sources */,
 				C6E423EF1E5BDC5D00707F53 /* AppDelegate.swift in Sources */,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EventKit
 
 struct Objects {
     var sectionName: String!
@@ -15,10 +16,22 @@ struct Objects {
 
 class AgendaTableViewController: UITableViewController {
     
+    let eventStore = EKEventStore()
+    
+    
     var objectsArray = [Objects]()
-
+    
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var events = EKEvent(eventStore: eventStore)
+        var calendarsArray = [EKCalendar]()
+        calendarsArray = eventStore.calendars(for: .event)
+        
+        for calendar: EKCalendar in calendarsArray {
+            print(calendar)
+        }
         
         objectsArray = [Objects(sectionName: "section 1", sectionObjects: ["one", "two", "three", "four"]),
                         Objects(sectionName: "section 2", sectionObjects: ["five", "six", "seven", "eight"]),
@@ -32,23 +45,30 @@ class AgendaTableViewController: UITableViewController {
         
     }
     
+    //MAKR: - Table View
+    // Returning tableView cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "agendaCell") as UITableViewCell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell") as! CustomTableViewCell
         
-        cell?.textLabel?.text = objectsArray[indexPath.section].sectionObjects[indexPath.row]
+        cell.titleLabel.text =  objectsArray[indexPath.section].sectionObjects[indexPath.row]
+        cell.startLabel.text = "12:00"
+        cell.endLabel.text = "01:00"
         
         
-        return cell!
+        return cell
     }
     
+    // row in section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return objectsArray[section].sectionObjects.count
     }
     
+    // number of rows
     override func numberOfSections(in tableView: UITableView) -> Int {
         return objectsArray.count
     }
     
+    // set title for header
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return objectsArray[section].sectionName
     }
