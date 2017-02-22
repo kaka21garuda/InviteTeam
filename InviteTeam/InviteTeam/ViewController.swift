@@ -7,19 +7,16 @@
 //
 
 import UIKit
-import EventKit
 import JTAppleCalendar
 
 class ViewController: UIViewController {
-    
-    let eventStore = EKEventStore()
     
     
     let white = UIColor(colorWithHexValue: 0xECEAED)
     let darkPurple = UIColor(colorWithHexValue: 0x3A284C)
     let dimPurple = UIColor(colorWithHexValue: 0x574865)
 
-    // MARK: -IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     
     override func viewDidLoad() {
@@ -74,35 +71,10 @@ class ViewController: UIViewController {
         }
         
     }
-    
-    func eventKitAuthorization() {
-        // if the EventKit is not authorized
-        if EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized {
-            eventStore.requestAccess(to: .event, completion: { (success, error) in
-                //
-            })
-        } else {
-            
-        }
-    }
-    
-    func createEvent(eventStore: EKEventStore, title: String, startDate: Date, endDate: Date) {
-        let event = EKEvent(eventStore: eventStore)
-        
-        event.title = title
-        event.startDate = startDate
-        event.endDate = endDate
-        event.calendar = eventStore.defaultCalendarForNewEvents
-        do {
-            try eventStore.save(event, span: .thisEvent)
-        } catch {
-            print("Error in adding event")
-        }
-    }
 
 }
 
-// MARK: -Extension
+// MARK: - Extension
 extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate {
     
     // MARK: -Configuring Calendar
@@ -128,7 +100,7 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         return parameters
     }
     
-    // MARK: -Calendar Cell
+    // MARK: - Calendar Cell
     func calendar(_ calendar: JTAppleCalendarView, willDisplayCell cell: JTAppleDayCellView, date: Date, cellState: CellState) {
         
         let myCustoCell = cell as! CellView
@@ -141,6 +113,7 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         handleCellSelection(view: cell, cellState: cellState)
     }
     
+    //MARK: - Select Date
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
         
         let myCustomCell = cell as! CellView
@@ -157,6 +130,7 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
     
     }
     
+    //MARK: - Deselect Date
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
         
         let myCustomCell = cell as! CellView
@@ -168,6 +142,7 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
     
 }
 
+//MARK: - Color HEX
 extension UIColor {
     convenience init(colorWithHexValue value: Int, alpha:CGFloat = 1.0){
         self.init(

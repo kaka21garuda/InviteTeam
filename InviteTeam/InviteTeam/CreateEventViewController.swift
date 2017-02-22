@@ -9,12 +9,12 @@
 import UIKit
 import EventKit
 
-class CreateEventViewController: UIViewController, UITextFieldDelegate {
+class CreateEventViewController: UIViewController {
     
     // make an instance of EKEventStore
     let eventStore = EKEventStore()
 
-    //MARK: -IBOutlets
+    //MARK: - IBOutlets
     @IBOutlet weak var addEventButton: UIButton!
     @IBAction func addAction(_ sender: UIButton) {
         
@@ -26,6 +26,7 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var fromDatePicker: UIDatePicker!
     @IBOutlet weak var endDatePicker: UIDatePicker!
     
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,11 +36,8 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
-    
+    //MARK: - Event Auth & Create
+    // EventKit Authorization
     func getAuthorization() {
         if EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized {
             eventStore.requestAccess(to: .event, completion: { (success, error) in
@@ -51,6 +49,7 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    // Create Event with EKEvent
     func createEvent(title: String, startDate: Date, endDate: Date) {
         let event = EKEvent(eventStore: eventStore)
         
@@ -66,5 +65,13 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
-    
+}
+
+//MARK: - TextField Delegate
+extension CreateEventViewController: UITextFieldDelegate {
+    // When return key is dismissed, keyboard is dismissed.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 }
