@@ -10,6 +10,10 @@ import UIKit
 import JTAppleCalendar
 
 class ViewController: UIViewController {
+    
+    let white = UIColor(colorWithHexValue: 0xECEAED)
+    let darkPurple = UIColor(colorWithHexValue: 0x3A284C)
+    let dimPurple = UIColor(colorWithHexValue: 0x574865)
 
     // MARK: -IBOutlets
     @IBOutlet weak var calendarView: JTAppleCalendarView!
@@ -22,6 +26,48 @@ class ViewController: UIViewController {
         calendarView.registerCellViewXib(file: "CellView")
         
         calendarView.cellInset = CGPoint(x: 0, y: 0)
+        
+    }
+    
+    // Function to handle the text color of the calendar
+    func handleCellTextColor(view: JTAppleDayCellView?, cellState: CellState) {
+        guard let myCustomCell = view as? CellView  else {
+            return
+        }
+        
+        if cellState.isSelected {
+            myCustomCell.dayLabel.textColor = UIColor.green
+            myCustomCell.selectedView.isHidden = false
+            myCustomCell.selectedView.backgroundColor = UIColor.yellow
+        } else {
+            if cellState.dateBelongsTo == .thisMonth {
+                myCustomCell.dayLabel.textColor = white
+            } else {
+                myCustomCell.dayLabel.textColor = dimPurple
+            }
+        }
+    }
+    
+    // Function to handle the calendar selection
+    func handleCellSelection(view: JTAppleDayCellView?, cellState: CellState) {
+        guard let myCustomCell = view as? CellView  else {
+            return
+        }
+        
+        
+        // myCustomCell.selectedView.frame = myCustomCell.bounds.insetBy(dx: 5, dy: 5)
+        print("******* Cell Selected....")
+        print(myCustomCell.selectedView)
+        print(myCustomCell.selectedView.layer.cornerRadius)
+        
+        
+        
+        if cellState.isSelected {
+            // myCustomCell.selectedView.layer.cornerRadius =  25
+            myCustomCell.selectedView.isHidden = false
+        } else {
+            myCustomCell.selectedView.isHidden = true
+        }
         
     }
 
@@ -37,10 +83,10 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         formatter.dateFormat = "yyyy MM dd"
         
         // the date calendar will start from
-        let startDate = formatter.date(from: "2017 02 20")
+        let startDate = formatter.date(from: "2017 02 20")!
         // date calendar will end
         let endDate = Date()
-        let parameters = ConfigurationParameters(startDate: startDate!,
+        let parameters = ConfigurationParameters(startDate: startDate,
                                                  endDate: endDate,
                                                  // the number of months you 
                                                  // want to display
@@ -60,14 +106,35 @@ extension ViewController: JTAppleCalendarViewDataSource, JTAppleCalendarViewDele
         
         //seting up text inside cell
         myCustoCell.dayLabel.text = cellState.text
+        myCustoCell.selectedView.backgroundColor = UIColor.yellow
         
-        //setup text color
-        if cellState.dateBelongsTo == .thisMonth {
-            myCustoCell.dayLabel.textColor = UIColor(colorWithHexValue: 0xECEAED)
-        } else {
-            myCustoCell.dayLabel.textColor = UIColor(colorWithHexValue: 0x574865)
+        handleCellTextColor(view: cell, cellState: cellState)
+        handleCellSelection(view: cell, cellState: cellState)
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
+        
+        let myCustomCell = cell as! CellView
+        
+        // Let's make the view have rounded corners. Set corner radius to 25
+        myCustomCell.selectedView.layer.cornerRadius =  10
+        
+        if cellState.isSelected {
+            myCustomCell.selectedView.isHidden = false
         }
         
+        handleCellSelection(view: cell, cellState: cellState)
+        handleCellTextColor(view: cell, cellState: cellState)
+    
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleDayCellView?, cellState: CellState) {
+        
+        let myCustomCell = cell as! CellView
+        myCustomCell.selectedView.isHidden = false
+        
+        handleCellSelection(view: cell, cellState: cellState)
+        handleCellTextColor(view: cell, cellState: cellState)
     }
     
 }
@@ -82,22 +149,3 @@ extension UIColor {
         )
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
