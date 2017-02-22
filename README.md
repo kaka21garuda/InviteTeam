@@ -31,7 +31,10 @@ This is going to be a platform where a person can enter any team's calendar/agen
 [who is this app targeting?]
 
 #### Experience
-[how will your users interact with this app?]
+* Sign in into a team schedule
+* Access all the team's event and agenda
+* as a team organizer, you may edit any event
+* when there is a new team member, just need to sign in into the team
 
 [Back to top ^](#)
 
@@ -43,11 +46,13 @@ This is going to be a platform where a person can enter any team's calendar/agen
 * [list the different screens used in the app]
 
 #### External services
-* [list which APIs or external services will your app use?]
+* EventKit
+* CloudKit
 
 #### Views, View Controllers, and other Classes
 * Views
-  * [list all views you will need]
+  * CalendarView
+  * CreateEventView
 * View Controllers
   * [list all view controllers you will need]
 * Other Classes
