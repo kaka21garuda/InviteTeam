@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import EventKit
 import JTAppleCalendar
 
 class ViewController: UIViewController {
+    
+    let eventStore = EKEventStore()
+    
     
     let white = UIColor(colorWithHexValue: 0xECEAED)
     let darkPurple = UIColor(colorWithHexValue: 0x3A284C)
@@ -69,6 +73,31 @@ class ViewController: UIViewController {
             myCustomCell.selectedView.isHidden = true
         }
         
+    }
+    
+    func eventKitAuthorization() {
+        // if the EventKit is not authorized
+        if EKEventStore.authorizationStatus(for: .event) != EKAuthorizationStatus.authorized {
+            eventStore.requestAccess(to: .event, completion: { (success, error) in
+                //
+            })
+        } else {
+            
+        }
+    }
+    
+    func createEvent(eventStore: EKEventStore, title: String, startDate: Date, endDate: Date) {
+        let event = EKEvent(eventStore: eventStore)
+        
+        event.title = title
+        event.startDate = startDate
+        event.endDate = endDate
+        event.calendar = eventStore.defaultCalendarForNewEvents
+        do {
+            try eventStore.save(event, span: .thisEvent)
+        } catch {
+            print("Error in adding event")
+        }
     }
 
 }
