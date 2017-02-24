@@ -9,6 +9,7 @@
 import UIKit
 import EventKit
 
+
 struct Objects {
     var sectionName: String!
     var sectionObjects: [String]!
@@ -17,6 +18,7 @@ struct Objects {
 class AgendaTableViewController: UITableViewController {
     
     let eventStore = EKEventStore()
+    var eventsArray: [EKEvent]?
     
     
     var objectsArray = [Objects]()
@@ -27,11 +29,15 @@ class AgendaTableViewController: UITableViewController {
         
         var events = EKEvent(eventStore: eventStore)
         var calendarsArray = [EKCalendar]()
+        var endDate = Date(timeIntervalSinceNow: Date.distantFuture.timeIntervalSinceReferenceDate)
+        var fetchCalendarEvents = eventStore.predicateForEvents(withStart: Date(), end: endDate, calendars: calendarsArray)
         calendarsArray = eventStore.calendars(for: .event)
         
-        for calendar: EKCalendar in calendarsArray {
-            print(calendar)
-        }
+        self.eventsArray = eventStore.events(matching: fetchCalendarEvents).sorted(by: { (e1, e2) -> Bool in
+            return e1.startDate.compare(e2.startDate) == ComparisonResult.orderedAscending
+        })
+        
+        
         
         objectsArray = [Objects(sectionName: "section 1", sectionObjects: ["one", "two", "three", "four"]),
                         Objects(sectionName: "section 2", sectionObjects: ["five", "six", "seven", "eight"]),

@@ -15,6 +15,7 @@
 		C65B17C71E5E0FBC00F2326B /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65B17C61E5E0FBC00F2326B /* CreateEventViewController.swift */; };
 		C65B17C91E5E2F9700F2326B /* AgendaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65B17C81E5E2F9700F2326B /* AgendaTableViewController.swift */; };
 		C65B17CB1E5E3E7F00F2326B /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65B17CA1E5E3E7F00F2326B /* CustomTableViewCell.swift */; };
+		C65B17CE1E5E969200F2326B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C65B17CD1E5E969200F2326B /* CloudKit.framework */; };
 		C6E423EF1E5BDC5D00707F53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E423EE1E5BDC5D00707F53 /* AppDelegate.swift */; };
 		C6E423F11E5BDC5D00707F53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E423F01E5BDC5D00707F53 /* ViewController.swift */; };
 		C6E423F41E5BDC5D00707F53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6E423F21E5BDC5D00707F53 /* Main.storyboard */; };
@@ -53,6 +54,8 @@
 		C65B17C61E5E0FBC00F2326B /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		C65B17C81E5E2F9700F2326B /* AgendaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgendaTableViewController.swift; sourceTree = "<group>"; };
 		C65B17CA1E5E3E7F00F2326B /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		C65B17CC1E5E968A00F2326B /* InviteTeam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InviteTeam.entitlements; sourceTree = "<group>"; };
+		C65B17CD1E5E969200F2326B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		C6E423EB1E5BDC5D00707F53 /* InviteTeam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InviteTeam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E423EE1E5BDC5D00707F53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6E423F01E5BDC5D00707F53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +80,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				166A9BE735C65DFE920EEFEA /* Pods_InviteTeam.framework in Frameworks */,
+				C65B17CE1E5E969200F2326B /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +106,7 @@
 		48C867C7E8EA65E9EAE6FAE0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C65B17CD1E5E969200F2326B /* CloudKit.framework */,
 				685D5341482CC24D77F0D306 /* Pods_InviteTeam.framework */,
 				F61F31719F3C46537824BF0A /* Pods_InviteTeamTests.framework */,
 				63E2C757190100AE0EF2EFAA /* Pods_InviteTeamUITests.framework */,
@@ -147,6 +152,7 @@
 		C6E423ED1E5BDC5D00707F53 /* InviteTeam */ = {
 			isa = PBXGroup;
 			children = (
+				C65B17CC1E5E968A00F2326B /* InviteTeam.entitlements */,
 				C6E423EE1E5BDC5D00707F53 /* AppDelegate.swift */,
 				C6E423F01E5BDC5D00707F53 /* ViewController.swift */,
 				C6E423F21E5BDC5D00707F53 /* Main.storyboard */,
@@ -259,6 +265,14 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = T9R33YRSR8;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					C6E423FE1E5BDC5D00707F53 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -621,6 +635,7 @@
 			baseConfigurationReference = EECA7A7361E3459D880170E4 /* Pods-InviteTeam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = InviteTeam/InviteTeam.entitlements;
 				DEVELOPMENT_TEAM = T9R33YRSR8;
 				INFOPLIST_FILE = InviteTeam/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -635,6 +650,7 @@
 			baseConfigurationReference = 28B1FFF538B48C4E59508038 /* Pods-InviteTeam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = InviteTeam/InviteTeam.entitlements;
 				DEVELOPMENT_TEAM = T9R33YRSR8;
 				INFOPLIST_FILE = InviteTeam/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

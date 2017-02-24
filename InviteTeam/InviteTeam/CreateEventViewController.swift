@@ -8,6 +8,14 @@
 
 import UIKit
 import EventKit
+import CloudKit
+
+struct EventObject {
+    var title: String
+    var startDate: Date
+    var endDate: Date
+    var calendar: EKCalendar
+}
 
 class CreateEventViewController: UIViewController {
     
@@ -57,6 +65,24 @@ class CreateEventViewController: UIViewController {
         event.startDate = startDate
         event.endDate = endDate
         event.calendar = eventStore.defaultCalendarForNewEvents
+        
+        
+        // Create an object of CKRecord
+        let newEvent = CKRecord(recordType: "Event")
+         
+        newEvent["title"] = title as CKRecordValue?
+        newEvent["startDate"] = startDate as CKRecordValue?
+        newEvent["endDate"] = endDate as CKRecordValue?
+        newEvent["calendar"] = eventStore.defaultCalendarForNewEvents as? CKRecordValue
+        
+        let publicData = CKContainer.default().publicCloudDatabase
+        publicData.save(newEvent) { (record, error) in
+            if error == nil {
+                print("event is saved")
+            }
+        }
+        
+        
         
         do {
             try eventStore.save(event, span: .thisEvent)
