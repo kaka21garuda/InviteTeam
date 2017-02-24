@@ -14,10 +14,21 @@ struct EventObject {
     var title: String
     var startDate: Date
     var endDate: Date
-    var calendar: EKCalendar
+}
+
+class Bug {
+
+    var title: String!
+    var description: String!
+
 }
 
 class CreateEventViewController: UIViewController {
+    
+    let publicDB = CKContainer.default().publicCloudDatabase
+    
+    var listOfEvents = [EventObject]()
+    var listOfBugs = [Bug]()
     
     // make an instance of EKEventStore
     let eventStore = EKEventStore()
@@ -42,6 +53,8 @@ class CreateEventViewController: UIViewController {
         
         self.titleTextField.delegate = self
         
+        loadData()
+        
     }
     
     //MARK: - Event Auth & Create
@@ -57,6 +70,7 @@ class CreateEventViewController: UIViewController {
         }
     }
     
+    //MARK: - Create Event
     // Create Event with EKEvent
     func createEvent(title: String, startDate: Date, endDate: Date) {
         let event = EKEvent(eventStore: eventStore)
@@ -69,16 +83,15 @@ class CreateEventViewController: UIViewController {
         
         // Create an object of CKRecord
         let newEvent = CKRecord(recordType: "Event")
-         
+        
         newEvent["title"] = title as CKRecordValue?
         newEvent["startDate"] = startDate as CKRecordValue?
         newEvent["endDate"] = endDate as CKRecordValue?
-        newEvent["calendar"] = eventStore.defaultCalendarForNewEvents as? CKRecordValue
-        
+        //MARK: Save Date into Cloud
         let publicData = CKContainer.default().publicCloudDatabase
         publicData.save(newEvent) { (record, error) in
             if error == nil {
-                print("event is saved")
+                print(record!)
             }
         }
         
@@ -91,6 +104,43 @@ class CreateEventViewController: UIViewController {
         }
         
     }
+    
+    func loadData() {
+    
+        let container = CKContainer.default()
+        let publicData = container.publicCloudDatabase
+        
+        let query = CKQuery(recordType: "Bug", predicate: NSPredicate(format: "TRUEPREDICATE", argumentArray: nil))
+        publicData.perform(query,
+                           inZoneWith: nil) { (results, error) in
+                            if error == nil {
+                            
+                                for bug in results! {
+                                
+                                    let newBug = Bug()
+                                    newBug.title = bug["title"] as! String!
+                                    newBug.description = bug["description"] as! String!
+                                    
+                                    self.listOfBugs.append(newBug)
+                                    print(self.listOfBugs[0].title)
+                                    
+                                }
+                            
+                            } else {
+                            
+                                print(error?.localizedDescription)
+                            
+                            
+                            }
+        }
+        
+        
+            
+       
+        
+    }
+    
+    
 }
 
 //MARK: - TextField Delegate
